@@ -1,0 +1,71 @@
+<script>
+    // 원소 기호, 이름 및 원자번호의 배열 (1번부터 22번까지의 원소)
+    var elements = [
+        { symbol: "H", name: "수소", atomicNumber: 1 },
+        { symbol: "He", name: "헬륨", atomicNumber: 2 },
+        { symbol: "Li", name: "리튬", atomicNumber: 3 },
+        { symbol: "Be", name: "베릴륨", atomicNumber: 4 },
+        { symbol: "B", name: "붕소", atomicNumber: 5 },
+        { symbol: "C", name: "탄소", atomicNumber: 6 },
+        { symbol: "N", name: "질소", atomicNumber: 7 },
+        { symbol: "O", name: "산소", atomicNumber: 8 },
+        { symbol: "F", name: "플루오린", atomicNumber: 9 },
+        { symbol: "Ne", name: "네온", atomicNumber: 10 },
+        { symbol: "Na", name: "나트륨", atomicNumber: 11 },
+        { symbol: "Mg", name: "마그네슘", atomicNumber: 12 },
+        { symbol: "Al", name: "알루미늄", atomicNumber: 13 },
+        { symbol: "Si", name: "규소", atomicNumber: 14 },
+        { symbol: "P", name: "인", atomicNumber: 15 },
+        { symbol: "S", name: "황", atomicNumber: 16 },
+        { symbol: "Cl", name: "염소", atomicNumber: 17 },
+        { symbol: "Ar", name: "아르곤", atomicNumber: 18 },
+        { symbol: "K", name: "칼륨", atomicNumber: 19 },
+        { symbol: "Ca", name: "칼슘", atomicNumber: 20 },
+        { symbol: "Sc", name: "스칸듐", atomicNumber: 21 },
+        { symbol: "Ti", name: "타이타늄", atomicNumber: 22 }
+    ];
+
+    // 다음 원소의 정보를 표시하는 함수
+    function displayNextElement() {
+        var randomIndex = Math.floor(Math.random() * elements.length);
+        var nextElement = elements[randomIndex];
+        var questionElement = document.getElementById('question');
+        questionElement.innerText = "다음 원소의 원소 기호와 원자번호를 맞춰보세요: " + nextElement.name;
+    }
+
+    // 페이지 로드 시 처음 문제 표시
+    window.onload = displayNextElement;
+
+    function checkAnswer() {
+        var symbolInput = document.getElementById('symbol-input').value;
+        var atomicNumberInput = parseInt(document.getElementById('atomic-number-input').value);
+        var resultElement = document.getElementById('result');
+        var correct = false;
+
+        for (var i = 0; i < elements.length; i++) {
+            if (symbolInput.toUpperCase() === elements[i].symbol.toUpperCase() &&
+                atomicNumberInput === elements[i].atomicNumber) {
+                resultElement.innerText = '정답입니다!';
+                correct = true;
+                break;
+            }
+        }
+
+        if (!correct) {
+            resultElement.innerText = '틀렸습니다. 다시 시도하세요.';
+        }
+
+        // 다음 문제 표시
+        displayNextElement();
+    }
+</script>
+
+
+        if (!correct) {
+            resultElement.innerText = '틀렸습니다. 다시 시도하세요.';
+        }
+
+        // 다음 문제 표시
+        displayNextElement();
+    }
+</script>
